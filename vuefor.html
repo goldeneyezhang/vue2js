@@ -1,0 +1,28 @@
+<html>
+<head>
+<script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+<div id="app1">
+  <ul id="example-1">
+  <li v-for="item in items">
+    {{ item.message }}
+  </li>
+    <li v-for="(item, index) in items">
+    {{ parentMessage }} - {{ index }} - {{ item.message }}
+  </li>
+</ul>
+</div>
+<script>
+var app = new Vue({
+  el: '#app1',
+  data: {
+       items: [
+      { message: 'Foo' },
+      { message: 'Bar' }
+    ],
+	 parentMessage: 'Parent'
+  }
+});
+</script>
+</body>

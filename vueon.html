@@ -1,0 +1,60 @@
+<html>
+<head>
+<meta charset="UTF-8"> 
+<script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+<div id="app1">
+  <button v-on:click="counter+=1">增加1</button>
+  <p>这个按钮被点击了{{counter}}次。</p>
+</div>
+<div id="example-2">
+  <!-- `greet` 是在下面定义的方法名 -->
+  <button v-on:click="greet">Greet</button>
+</div>
+<div id="example-3">
+  <button v-on:click="say('hi')">Say hi</button>
+  <button v-on:click="say('what')">Say what</button>
+  <button v-on:click="warn('Form cannot be submitted yet.',$event)">Submit</button>
+</div>
+<script>
+var app = new Vue({
+  el: '#app1',
+  data: {
+      counter:0
+  }
+});
+var example2=new Vue({
+	el:'#example-2',
+	data:{
+		name:'Vue.js'
+	},
+	//在'methods'对象中定义方法
+	methods:{
+		greet:function(event){
+			//this在方法里指当前Vue实例
+			alert('Hello'+this.name+'!')
+			//event是原生DOM事件
+			if(event){
+				alert(event.target.tagName)
+			}
+		}
+	}
+});
+var example3=new Vue({
+	el:"#example-3",
+	methods:{
+		say:function(message){
+			alert(message)
+		},
+		warn:function(message,event){
+		//现在我们可以访问原生事件对象
+		if(event) {
+		event.preventDefault()
+		alert(message)
+		}
+		}
+	}
+})
+</script>
+</body>

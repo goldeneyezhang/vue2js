@@ -1,0 +1,37 @@
+<html>
+<head>
+<script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+<div id="app1">
+  <div v-if="Math.random()>0.5">
+  Now you see me
+</div>
+<div v-else>
+  Now you don't
+</div>
+<template v-if="loginType === 'username'">
+  <label>Username</label>
+  <input placeholder="Enter your username" key="username-input">
+</template>
+<template v-else>
+  <label>Email</label>
+  <input placeholder="Enter your email address" key="email-input">
+</template>
+<button v-on:click="togglelogintype">Toggle login type</button>
+</div>
+<script>
+var app = new Vue({
+  el: '#app1',
+  data: {
+    message: 'Hello Vue!!!',
+	loginType:'username'
+  },
+  methods: {
+    togglelogintype: function () {
+      this.loginType=this.loginType=='username'?'email':'username'
+    }
+  }
+});
+</script>
+</body>
