@@ -43,6 +43,15 @@
   </select>
   <span>Selected: {{ selected }}</span>
 </div>
+<div id="example-6">
+  <select v-model="selected" multiple style="width: 50px;">
+    <option>A</option>
+    <option>B</option>
+    <option>C</option>
+  </select>
+  <br>
+  <span>Selected: {{ selected }}</span>
+</div>
 <script>
 
 var app = new Vue({
@@ -67,6 +76,12 @@ new Vue({
 })
 new Vue({
   el: '#example-5',
+  data: {
+    selected: ''
+  }
+})
+new Vue({
+  el: '#example-6',
   data: {
     selected: ''
   }
